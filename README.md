@@ -1,6 +1,6 @@
-![lets encrypt and aks](https://github.com/user-attachments/assets/17a7eee1-5d35-4263-bfb5-db8cda31da74)
+![cert manager drawio](https://github.com/user-attachments/assets/34d53da0-570b-47ef-a8e3-207d6f51c395)
 
-# Deploying NGINX Ingress with Cert-Manager on Azure AKS
+# Deploying NGINX Ingress with Cert-Manager, let's Encrypt on Azure AKS
 
 This guide walks through the process of deploying an NGINX Ingress Controller on Azure Kubernetes Service (AKS), setting up automated SSL using Let's Encrypt via Cert-Manager, and exposing applications using a custom domain and a static public IP address.  
 
