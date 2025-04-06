@@ -1,7 +1,7 @@
 # Deploying NGINX Ingress with Cert-Manager on Azure AKS
 
 This guide walks through the process of deploying an NGINX Ingress Controller on Azure Kubernetes Service (AKS), setting up automated SSL using Let's Encrypt via Cert-Manager, and exposing applications using a custom domain and a static public IP address.  
-![Image](image-path)
+
 
 ---
 
@@ -11,7 +11,6 @@ This guide walks through the process of deploying an NGINX Ingress Controller on
 - `kubectl`, `helm`, and `az` CLI installed and configured  
 - A registered custom domain  
 - Access to DNS management to create A records  
-![Image](image-path)
 
 ---
 
@@ -45,7 +44,6 @@ helm upgrade --install ingress-nginx ingress-nginx \
   --set controller.service.externalTrafficPolicy=Local \
   --set controller.setAsDefaultIngress=true
 ```
-![Image](image-path)
 
 ---
 
@@ -63,8 +61,6 @@ helm install cert-manager jetstack/cert-manager \
   --namespace public-ingress \
   --version v1.11.0
 ```
-![Image](image-path)
-
 ---
 
 ## Step 4: Create a Cluster Issuer (Let’s Encrypt)
@@ -93,7 +89,7 @@ Apply the issuer:
 ```bash
 kubectl apply -f cluster-issuer.yaml --namespace public-ingress
 ```
-![Image](image-path)
+![cluster issuer](https://github.com/user-attachments/assets/c88b457d-dbb0-41fc-8636-d733d55e8f5d)
 
 ---
 
@@ -143,7 +139,7 @@ Apply the deployment:
 ```bash
 kubectl apply -f dev-service-core-deployment.yaml
 ```
-![Image](image-path)
+![deployment and svc](https://github.com/user-attachments/assets/641407b0-274c-45f2-9e04-ee12005f8766)
 
 ---
 
@@ -154,10 +150,11 @@ Get the public IP:
 ```bash
 kubectl get svc -n public-ingress
 ```
+![ingress load balancer ip](https://github.com/user-attachments/assets/b0428e48-bad2-4a2f-a061-aeae315b60d9)
 
 Then navigate to your domain hosting provider (e.g., GoDaddy):  
 **My Products > Choose Domain > DNS > Add New Record**  
-![Image](image-path)
+![godady](https://github.com/user-attachments/assets/20bee140-5b29-4b71-9a8e-2afb19cd89b3)
 
 ---
 
@@ -198,7 +195,7 @@ Apply the ingress:
 ```bash
 kubectl apply -f dev-service-core-ingress.yaml
 ```
-![Image](image-path)
+![ingress created](https://github.com/user-attachments/assets/0589020b-51fd-4be5-a1d1-39a5ff78554c)
 
 ---
 
@@ -219,13 +216,14 @@ In the `spec` section, add:
 ```yaml
 ingressClassName: public
 ```
+![edit ingress ](https://github.com/user-attachments/assets/46b82cd8-580e-4fa4-9d12-7e328622eaf5)
 
 Wait for ~2 minutes, then re-check the certificate:
 
 ```bash
 kubectl get certificate --namespace public-ingress
 ```
-![Image](image-path)
+![certs](https://github.com/user-attachments/assets/acf90e3b-c38c-4159-aabe-c622777f726a)
 
 ---
 
@@ -234,7 +232,7 @@ kubectl get certificate --namespace public-ingress
 You should now be able to access your site securely:
 
 - `https://your-domain.com`  
-![Image](image-path)
+![access the site](https://github.com/user-attachments/assets/78d8323f-8b94-4855-9fe6-4c621efbab70)
 
 ---
 
