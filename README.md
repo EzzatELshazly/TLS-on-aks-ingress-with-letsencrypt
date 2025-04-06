@@ -21,7 +21,6 @@ Run the following command:
 ```bash
 kubectl create namespace public-ingress
 ```
-![Image](image-path)
 
 ---
 
