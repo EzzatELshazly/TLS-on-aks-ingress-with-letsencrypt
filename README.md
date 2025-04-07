@@ -1,4 +1,6 @@
-<img src="https://github.com/user-attachments/assets/34d53da0-570b-47ef-a8e3-207d6f51c395" alt="cert manager drawio" width="500"/>
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/34d53da0-570b-47ef-a8e3-207d6f51c395" alt="cert manager drawio" width="400"/>
+</div>
 
 # Deploying NGINX Ingress with Cert-Manager, let's Encrypt on Azure AKS
 
